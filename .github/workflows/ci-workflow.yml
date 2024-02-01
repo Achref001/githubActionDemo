@@ -4,12 +4,12 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "*" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "*" ]
 permissions: write-all
 jobs:
-  build:
+  build-push:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -24,11 +24,6 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: cd demo && mvn clean install
-
-
-  review:
-    runs-on: ubuntu-latest
-    steps:
       - name: AI code review
         uses: freeedcom/ai-codereviewer@v2.7.0
         with:
