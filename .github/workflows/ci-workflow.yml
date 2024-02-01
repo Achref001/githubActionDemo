@@ -9,7 +9,7 @@ on:
     branches: [ "main" ]
 permissions: write-all
 jobs:
-  build:
+  build-push:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -26,7 +26,7 @@ jobs:
         run: cd demo && mvn clean install
 
 
-  review:
+  build-pull-request:
     runs-on: ubuntu-latest
     steps:
       - name: AI code review
